@@ -13,11 +13,24 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <title>Raanggasa | Personal web</title>
+    <style>
+        /* Sembunyikan iframe untuk hanya memutar suara */
+        .audio-only {
+            width: 1px;
+            height: 1px;
+            position: absolute;
+            left: -9999px;
+        }
+    </style>
   </head>
   <body>
-    <audio>
-        <source src="assets/music 1.mp3" type="audio/mpeg">
-    </audio>
+    <!-- Iframe YouTube dengan parameter autoplay dan loop -->
+    <iframe class="audio-only" 
+        src="https://youtu.be/8Ebqe2Dbzls?si=ctW96yr7m8YRwWnr"
+        frameborder="0" 
+        allow="autoplay" 
+        allowfullscreen>
+    </iframe>
     <nav>
       <div class="nav__bar">
         <div class="nav__header">
