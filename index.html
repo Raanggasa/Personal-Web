@@ -11,14 +11,22 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <!-- Add this link to include Font Awesome icons -->
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css" />
     <title>Raanggasa | Personal web</title>
   </head>
   <body>
-    <audio autoplay loop>
-        <source src="assets/music 1.mp3" type="audio/mpeg">
-        Browser Anda tidak mendukung pemutar audio.
+    <audio id="backgroundMusic" autoplay loop>
+      <source src="assets/music 1.mp3" type="audio/mpeg">
+      Browser Anda tidak mendukung pemutar audio.
     </audio>
+    
+    <button id="musicControlButton" class="music__button">
+      <i class="fas fa-pause"></i> <!-- Pause icon to start -->
+    </button>
     <nav>
       <div class="nav__bar">
         <div class="nav__header">
