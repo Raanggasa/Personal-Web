@@ -61,3 +61,21 @@ ScrollReveal().reveal(".footer__socials", {
   ...scrollRevealOption,
   delay: 1500,
 });
+
+const musicControlButton = document.getElementById('musicControlButton');
+const backgroundMusic = document.getElementById('backgroundMusic');
+let isPlaying = true;
+
+musicControlButton.addEventListener('click', () => {
+  const icon = musicControlButton.querySelector('i');
+  if (isPlaying) {
+    backgroundMusic.pause();
+    icon.classList.remove('fa-pause');
+    icon.classList.add('fa-play'); // Change to play icon
+  } else {
+    backgroundMusic.play();
+    icon.classList.remove('fa-play');
+    icon.classList.add('fa-pause'); // Change to pause icon
+  }
+  isPlaying = !isPlaying;
+});
