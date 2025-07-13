@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+        <link rel="icon" type="image/png" href="images/icon.svg" />
+        <title>Portfolio Website</title>
+    <style>
+        /* CSS Color Variables */
+        :root {
+            --white: #fff;
+            --black: #000;
+            --neutral-100: #f5f5f5;
+            --neutral-200: #e5e5e5;
+            --neutral-400: #a3a3a3;
+            --neutral-500: #737373;
+            --neutral-800: #262626;
+            --neutral-900: #171717;
+            --neutral-950: #0a0a0a;
+        }
+
+        /* --- Global and Navbar/Footer Styles --- */
+        body {
+            font-family: "Onest", sans-serif;
+            background-color: #ffffff;
+        }
+
+        .custom-navbar {
+            padding-top: 16px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1030;
+            transition: background-color 0.3s;
+        }
+        .custom-navbar .navbar {
+            border: 1px solid var(--neutral-200);
+            border-radius: 999px;
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: .5rem 1.5rem;
+        }
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--black);
+        }
+        .navbar-nav .nav-link {
+            color: var(--neutral-500);
+            font-weight: 600;
+        }
+        .navbar-nav .nav-link.active,
+        .navbar-nav .nav-link:hover {
+            color: var(--black);
+        }
+
+        .footer-section { 
+            padding: 64px 0; 
+            background-color: var(--neutral-900); 
+            color: var(--neutral-400); 
+        }
+        .footer-brand { 
+            font-size: 24px; 
+            font-weight: 900; 
+            color: var(--white); 
+            text-decoration: none; 
+        }
+        .footer-tagline { margin-top: 1rem; }
+        .footer-links-title { font-weight: 600; color: var(--white); margin-bottom: 1rem; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 0.5rem; }
+        .footer-links a { text-decoration: none; color: var(--neutral-400); transition: color 0.3s; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-socials { display: flex; gap: 1rem; }
+        .footer-socials a { color: var(--neutral-400); font-size: 1.5rem; transition: color 0.3s; }
+        .footer-socials a:hover { color: var(--white); }
+        .footer-copyright { 
+            border-top: 1px solid var(--neutral-800); 
+            padding-top: 2rem; 
+            margin-top: 2rem; 
+            text-align: center; 
+        }
+        
+        /* --- Project Content Styles --- */
+        .page-content {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.7;
+            padding-top: 140px;
+            padding-bottom: 60px;
+        }
+        
+        .page-content h1, .page-content h2 {
+            color: var(--neutral-900);
+            border-bottom: 3px solid var(--neutral-900);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .page-content h1 {
+            font-size: 2.8em;
+            text-align: center;
+            border-bottom: none;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+        .page-content h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+        .page-content p {
+            margin-bottom: 1.5em;
+            color: #555;
+            font-size: 1.1em;
+        }
+        .project-section {
+            margin-bottom: 60px;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-top: 30px;
+        }
+        @media (min-width: 768px) {
+            .tech-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .tech-grid img, .section-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .section-image-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .page-content strong {
+            color: var(--neutral-950);
+            font-weight: 600;
+        }
+        .conclusion {
+            background-color: var(--neutral-900);
+            color: var(--neutral-100);
+            padding: 30px;
+            border-left: 5px solid var(--neutral-500);
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .conclusion p {
+            color: var(--neutral-200);
+        }
+        /* --- Style for strong text inside conclusion --- */
+        .conclusion strong {
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="custom-navbar">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="#">PORTOFOLIO</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">BACK TO HOME</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="container">
+            <header>
+                <h1 style="text-align: left;">Project Showcase: Neni Cookies Home Made Industry Website</h1>
+            </header>
+    
+            <main>
+                <section class="project-section">
+                    <h2>Project Description</h2>
+                    <p>
+                        This website serves as a <strong>landing page and product catalog</strong> for Neni Cookies Home Made Industry, a home-based business specializing in the production and sale of homemade cookies. The primary goal of this website is to establish a digital presence, enhance business credibility, and expand marketing reach to potential customers through a professional, informative, and user-friendly visual interface.
+                    </p>
+                    <div class="section-image-container">
+                        <img src="images/project-1.png" alt="Neni Cookies website on a laptop screen" class="section-image">
+                    </div>
+                    <p>
+                        The site features several key sections designed with a clean and intuitive layout. It starts with a business introduction, a brief company profile, ordering information, and a complete catalog of the various cookies offered. Visitors can view product photos with prices and are seamlessly directed to <strong>WhatsApp</strong> for quick and easy ordering. The website also includes an <strong>FAQ (Frequently Asked Questions)</strong> section to address common customer inquiries.
+                    </p>
+                </section>
+    
+                <section class="project-section">
+                    <h2>Technologies Used</h2>
+                    <p>
+                        The development of the Neni Cookies website utilized a combination of modern and structured front-end technologies to deliver a responsive, lightweight, and user-friendly experience.
+                    </p>
+    
+                    <div class="tech-grid">
+                        <div class="tech-description">
+                            <h3>HTML5 & SCSS (Sass)</h3>
+                            <p>
+                                The <strong>index.html</strong> file forms the main framework of the website, built with a clean, semantic structure compliant with modern standards. <strong>SCSS</strong> was used as a CSS preprocessor, enabling a more modular, organized, and scalable stylesheet. The `scss/` folder is divided into sections like `base/`, `components/`, `layout/`, and `theme/` to separate design features such as colors, buttons, and grid layouts.
+                            </p>
+                        </div>
+                        <img src="images/detail-project-1a.png" alt="Code snippet showing HTML and SCSS logos">
+                    </div>
+                    
+                    <div class="tech-grid">
+                         <div class="tech-description">
+                            <h3>JavaScript (Vanilla JS)</h3>
+                            <p>
+                                Two main JavaScript files were implemented: <strong>main.js</strong> contains custom scripts for user interactions like scroll animations, and <strong>scrollreveal.min.js</strong> is an external library used for scroll-based animations, creating a dynamic and interactive feel as elements appear on the screen.
+                            </p>
+                        </div>
+                        <img src="images/detail-project-1b.gif" alt="JavaScript logo with illustrative code background">
+                    </div>
+    
+                    <div class="tech-grid">
+                        <div class="tech-description">
+                            <h3>Optimization and Responsiveness</h3>
+                            <p>
+                               The website is designed to be <strong>fully responsive</strong>, ensuring a comfortable viewing experience on both desktop and mobile devices. Product images are compressed to ensure fast page loading times without sacrificing visual quality. Each product features a WhatsApp icon with a pre-configured link to the seller's number and an automated message, simplifying the ordering process to a single click.
+                            </p>
+                        </div>
+                        <img src="images/detail-project-1c.gif" alt="Illustration of a website on desktop, tablet, and mobile screens">
+                    </div>
+                </section>
+    
+                <section class="project-section">
+                    <h2>Conclusion</h2>
+                    <div class="conclusion">
+                        <p>
+                            The Neni Cookies Home Made Industry website is a prime example of how small and medium-sized enterprises (SMEs) can be digitized, focusing not only on an attractive visual appearance but also on technical aspects like code structure, access speed, and user experience.
+                        </p>
+                        <p>
+                            By combining <strong>HTML, SCSS, and JavaScript</strong> with an efficient file structure, this website serves as a powerful promotional tool that directly helps increase sales. This project demonstrates my ability to build a website that is functional, efficient, and ready for real-world business needs.
+                        </p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-4 col-md-12">
+                    <a href="index.html" class="footer-brand">PORTOFOLIO</a>
+                    <p class="footer-tagline">Creating intuitive and beautiful digital experiences from ideas.</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-links-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html#about">About Me</a></li>
+                        <li><a href="index.html#skills">Skills</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-links-title">Follow Me</h5>
+                    <div class="footer-socials">
+                        <a href="https://www.instagram.com/raanggasa_/" style="text-decoration: none;"><i class="ri-instagram-line"></i></a>
+                        <a href="https://www.linkedin.com/in/rangga-aditya-saputra-363ab71a1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" style="text-decoration: none;"><i class="ri-linkedin-fill"></i></a>
+                        <a href="https://youtube.com/@raanggasa?si=xmdQ3fMpvDSeLYWL" style="text-decoration: none;"><i class="ri-youtube-line"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                 <p>Rangga Aditya Saputra © <span id="currentYear"></span> — All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

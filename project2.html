@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+        <link rel="icon" type="image/png" href="images/icon.svg" />
+        <title>Portfolio Website</title>
+    <style>
+        /* CSS Color Variables */
+        :root {
+            --white: #fff;
+            --black: #000;
+            --neutral-100: #f5f5f5;
+            --neutral-200: #e5e5e5;
+            --neutral-400: #a3a3a3;
+            --neutral-500: #737373;
+            --neutral-800: #262626;
+            --neutral-900: #171717;
+            --neutral-950: #0a0a0a;
+        }
+
+        /* --- Global and Navbar/Footer Styles --- */
+        body {
+            font-family: "Onest", sans-serif;
+            background-color: #ffffff;
+        }
+
+        .custom-navbar {
+            padding-top: 16px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1030;
+            transition: background-color 0.3s;
+        }
+        .custom-navbar .navbar {
+            border: 1px solid var(--neutral-200);
+            border-radius: 999px;
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: .5rem 1.5rem;
+        }
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--black);
+        }
+        .navbar-nav .nav-link {
+            color: var(--neutral-500);
+            font-weight: 600;
+        }
+        .navbar-nav .nav-link.active,
+        .navbar-nav .nav-link:hover {
+            color: var(--black);
+        }
+
+        .footer-section { 
+            padding: 64px 0; 
+            background-color: var(--neutral-900); 
+            color: var(--neutral-400); 
+        }
+        .footer-brand { 
+            font-size: 24px; 
+            font-weight: 900; 
+            color: var(--white); 
+            text-decoration: none; 
+        }
+        .footer-tagline { margin-top: 1rem; }
+        .footer-links-title { font-weight: 600; color: var(--white); margin-bottom: 1rem; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 0.5rem; }
+        .footer-links a { text-decoration: none; color: var(--neutral-400); transition: color 0.3s; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-socials { display: flex; gap: 1rem; }
+        .footer-socials a { color: var(--neutral-400); font-size: 1.5rem; transition: color 0.3s; }
+        .footer-socials a:hover { color: var(--white); }
+        .footer-copyright { 
+            border-top: 1px solid var(--neutral-800); 
+            padding-top: 2rem; 
+            margin-top: 2rem; 
+            text-align: center; 
+        }
+        
+        /* --- Project Content Styles --- */
+        .page-content {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.7;
+            padding-top: 140px;
+            padding-bottom: 60px;
+        }
+        
+        .page-content h1, .page-content h2 {
+            color: var(--neutral-900);
+            border-bottom: 3px solid var(--neutral-900);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .page-content h1 {
+            font-size: 2.8em;
+            text-align: center;
+            border-bottom: none;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+        .page-content h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+        .page-content p {
+            margin-bottom: 1.5em;
+            color: #555;
+            font-size: 1.1em;
+        }
+        .project-section {
+            margin-bottom: 60px;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-top: 30px;
+        }
+        @media (min-width: 768px) {
+            .tech-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .tech-grid img, .section-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .section-image-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .page-content strong {
+            color: var(--neutral-950);
+            font-weight: 600;
+        }
+        .conclusion {
+            background-color: var(--neutral-900);
+            color: var(--neutral-100);
+            padding: 30px;
+            border-left: 5px solid var(--neutral-500);
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .conclusion p {
+            color: var(--neutral-200);
+        }
+        /* --- Style for strong text inside conclusion --- */
+        .conclusion strong {
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="custom-navbar">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="#">PORTOFOLIO</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">BACK TO HOME</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="container">
+            <header>
+                <h1 style="text-align: left;">Project Showcase: Sistem Pendukung Keputusan Rekomendasi Handphone Dengan Metode Simple Additive Weighting (SAW)</h1>
+            </header>
+    
+            <main>
+                <section class="project-section">
+                    <h2>Project Description</h2>
+                    <p>
+                        This website is a <strong>Decision Support System (DSS)</strong> for <strong>recommending smartphones</strong> using the <strong>SAW (Simple Additive Weighting)</strong> method. The case study is based on data from <strong>Erafone</strong> with official permission. This website was developed as a <strong>college assignment</strong> to fulfill the requirements of the <strong>Decision Support System</strong> course.
+                    </p>
+                    <div class="section-image-container">
+                        <img src="images/project-2.png" alt="Neni Cookies website on a laptop screen" class="section-image">
+                    </div>
+                    <p>
+                        In other words, this project is a <strong>web-based application</strong> that helps users select the best smartphone based on specific criteria using the <strong>SAW method</strong>. The smartphone data is sourced from <strong>Erafone</strong>, and this project was created as part of a college assignment for the <strong>Decision Support System course</strong>. All the code in this repository is written in <strong>HTML</strong>.
+                    </p>
+                </section>
+    
+                <section class="project-section">
+                    <h2>Technologies Used</h2>
+                    <p>
+                        The development of a decision support system website using the SAW method utilizes a combination of modern and structured front-end technologies to deliver a responsive, lightweight, and user-friendly experience.
+                    </p>
+    
+                    <div class="tech-grid">
+                        <div class="tech-description">
+                            <h3>System Calculation</h3>
+                            <p>
+                                In this system, the recommendation process for smartphones is carried out using the <strong>Simple Additive Weighting (SAW)</strong> method. <strong>SAW</strong> is one of the most commonly used <strong>weighted summation techniques</strong> in <strong>Decision Support Systems</strong>. Each alternative (smartphone) is evaluated based on several <strong>criteria</strong>, such as <strong>price</strong>, <strong>specifications</strong>, <strong>camera quality</strong>, <strong>battery life</strong>, and others. Each criterion value is first <strong>normalized</strong> to bring it to a common scale, then multiplied by its corresponding <strong>weight</strong> based on its level of importance. After that, a final score for each alternative is calculated by <strong>summing all the results</strong> of the multiplication between the normalized values and the criterion weights. The alternative with the <strong>highest score</strong> will be recommended as the <strong>best choice</strong> for the user. This process ensures that the decision made is <strong>objective</strong> and aligns with the user's <strong>preferences</strong>.
+                            </p>
+                        </div>
+                        <img src="images/detail-project-2a.png" alt="Code snippet showing HTML and SCSS logos">
+                    </div>
+    
+                    <div class="tech-grid">
+                        <div class="tech-description">
+                            <h3>Optimization and Responsiveness</h3>
+                            <p>
+                                <strong>Optimization</strong> on this website refers to efforts to ensure that the site runs <strong>efficiently</strong>, <strong>quickly</strong>, and <strong>lightweight</strong> when accessed by users. This includes optimizing <strong>HTML code</strong>, using <strong>small-sized but high-quality images</strong>, and implementing <strong>caching</strong> to speed up page loading times. Additionally, the <strong>data structure</strong> and <strong>algorithm</strong> used in the recommendation calculation process are optimized to deliver decisions in a short amount of time, even when processing a large set of smartphone data. <strong>Responsiveness</strong> means that the website is designed to maintain its appearance and functionality across various screen sizes, including <strong>desktop computers</strong>, <strong>tablets</strong>, and <strong>smartphones</strong>. By using <strong>responsive web design techniques</strong> such as <strong>media queries</strong> and <strong>flexible layouts</strong>, the website automatically adjusts to the user's screen resolution. This ensures that users have a <strong>comfortable and seamless experience</strong> when accessing the smartphone recommendation DSS features, anytime and anywhere, regardless of the device used.
+                            </p>
+                        </div>
+                        <img src="images/detail-project-2b.gif" alt="Illustration of a website on desktop, tablet, and mobile screens">
+                    </div>
+                </section>
+    
+                <section class="project-section">
+                    <h2>Conclusion</h2>
+                    <div class="conclusion">
+                        <p>
+                            The web-based <strong>Decision Support System (DSS)</strong> for <strong>smartphone recommendations</strong> developed using the <strong>Simple Additive Weighting (SAW)</strong> method is capable of assisting users in selecting the best smartphone based on their desired <strong>criteria</strong>. With an <strong>objective and efficient calculation process</strong>, along with a <strong>responsive and optimized website interface</strong> across various devices, the system provides <strong>accurate and easily accessible recommendations</strong>.
+                        </p>
+                        <p>
+                            The <strong>case study</strong> based on data from <strong>Erafone</strong> ensures that the information presented is relevant to current <strong>market needs</strong>. Therefore, this system serves as an <strong>effective solution</strong> in supporting users' <strong>decision-making process</strong> when purchasing a smartphone.
+                        </p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-4 col-md-12">
+                    <a href="index.html" class="footer-brand">PORTOFOLIO</a>
+                    <p class="footer-tagline">Creating intuitive and beautiful digital experiences from ideas.</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-links-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html#about">About Me</a></li>
+                        <li><a href="index.html#skills">Skills</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-links-title">Follow Me</h5>
+                    <div class="footer-socials">
+                        <a href="https://www.instagram.com/raanggasa_/" style="text-decoration: none;"><i class="ri-instagram-line"></i></a>
+                        <a href="https://www.linkedin.com/in/rangga-aditya-saputra-363ab71a1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" style="text-decoration: none;"><i class="ri-linkedin-fill"></i></a>
+                        <a href="https://youtube.com/@raanggasa?si=xmdQ3fMpvDSeLYWL" style="text-decoration: none;"><i class="ri-youtube-line"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                 <p>Rangga Aditya Saputra © <span id="currentYear"></span> — All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
