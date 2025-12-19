@@ -9,6 +9,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        
         <link rel="icon" type="images/icon.svg" href="images/icon.svg" />
         <title>Rangga Aditya Saputra - Web Developer & UI/UX Designer</title>
         
@@ -96,6 +98,7 @@
             /* start: Global */
             body {
                 font-family: "Onest", sans-serif;
+                overflow-x: hidden; /* Mencegah scroll horizontal saat animasi masuk */
             }
             .section-title {
                 font-size: 48px;
@@ -487,7 +490,6 @@
             }
             .skill-wrapper {
                 display: grid;
-                /* === PERUBAHAN DI SINI === */
                 grid-template-columns: repeat(3, 1fr);
                 gap: 24px;
                 margin-top: 32px;
@@ -737,6 +739,64 @@
                 }
             }
             /* end: Breakpoints */
+            
+            /* PROJECT HOVER CSS */
+            .project-image-link {
+                display: block;
+                position: relative;
+                overflow: hidden;
+                border-radius: 12px;
+                transition: box-shadow 0.3s;
+            }
+            .project-image-hover {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+            .project-image-link img,
+            .project-image-hover img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: filter 0.3s;
+            }
+            .project-image-overlay {
+                position: absolute;
+                left: 0; right: 0; bottom: 0; top: 0;
+                background: rgba(23,23,23,0.55);
+                opacity: 0;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                transition: opacity 0.4s;
+                pointer-events: none;
+            }
+            .project-image-text {
+                color: #fff;
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin-bottom: 32px;
+                opacity: 0;
+                transform: translateY(40px);
+                transition: opacity 0.4s, transform 0.4s;
+                letter-spacing: 1px;
+                pointer-events: none;
+            }
+            .project-image-link:hover .project-image-overlay,
+            .project-image-hover:hover .project-image-overlay {
+                opacity: 1;
+                pointer-events: auto;
+            }
+            .project-image-link:hover img,
+            .project-image-hover:hover img {
+                filter: blur(2px) brightness(0.7);
+            }
+            .project-image-link:hover .project-image-text,
+            .project-image-hover:hover .project-image-text {
+                opacity: 1;
+                transform: translateY(0);
+            }
         </style>
     </head>
     <body>
@@ -772,7 +832,7 @@
         <header id="hero" class="hero-section">
             <div class="container">
                 <div class="hero-wrapper">
-                    <div class="hero-left">
+                    <div class="hero-left" data-aos="fade-up" data-aos-duration="1000">
                         <div class="hero-left-wrapper">
                             <h2 class="hero-subtitle">A Technologist</h2>
                             <h1 class="hero-title">Hello I'm<br />Rangga Aditya Saputra</h1>
@@ -806,7 +866,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero-right">
+                    <div class="hero-right" data-aos="fade-left" data-aos-duration="1200">
                         <img src="images/Hero .JPG" alt="Image" class="hero-image" />
                         <span class="hero-image-bg red"></span>
                         <span class="hero-image-bg teal"></span>
@@ -818,14 +878,14 @@
         <section id="about" class="about-section">
             <div class="container">
                 <div class="about-wrapper">
-                    <div class="about-left">
+                    <div class="about-left" data-aos="fade-right" data-aos-duration="1000">
                         <h2 class="section-title about-title">Turning Ideas into Intuitive, Beautiful Experiences</h2>
                         <a href="mailto:rangga123ptk@gmail.com?subject=Let's%20Collaborate%20on%20a%20Project" class="btn-custom btn-custom-white btn-custom-lg">
                             <span>Contact Me</span>
                             <i class="ri-arrow-right-up-line"></i>
                         </a>
                     </div>
-                    <div class="about-right">
+                    <div class="about-right" data-aos="fade-left" data-aos-duration="1000">
                         <p class="about-subtitle">
                             An Information Systems student with a strong passion for the creative industry and technology, specializing in UI/UX design and web development to create visually compelling and functional solutions.
                         </p>
@@ -839,10 +899,10 @@
         <section id="experience" class="experience-section">
             <div class="container">
                 <div class="experience-wrapper">
-                    <div class="timeline-group">
+                    <div class="timeline-group" data-aos="fade-up" data-aos-delay="100">
                         <h2 class="group-title">EXPERIENCE</h2>
                         <div class="timeline">
-                            <div class="timeline-item">
+                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
                                 <div class="timeline-icon">
                                     <i class="ri-briefcase-4-line"></i>
                                 </div>
@@ -860,7 +920,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="timeline-item">
+                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
                                 <div class="timeline-icon">
                                     <i class="ri-team-line"></i>
                                 </div>
@@ -881,10 +941,10 @@
                         </div>
                     </div>
 
-                    <div class="timeline-group">
+                    <div class="timeline-group" data-aos="fade-up" data-aos-delay="100">
                         <h2 class="group-title">CERTIFICATIONS</h2>
                         <div class="timeline">
-                            <div class="timeline-item">
+                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
                                 <div class="timeline-icon">
                                     <i class="ri-award-line"></i>
                                 </div>
@@ -905,7 +965,6 @@
                                             Show <i class="ri-external-link-line"></i>
                                         </a>
                                     </div>
-                                    <!-- Modal for Sertifikat 1 -->
                                     <div class="modal fade" id="sertifikat1Modal" tabindex="-1" aria-labelledby="sertifikat1ModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-lg">
                                             <div class="modal-content" style="background:transparent; border:none;">
@@ -916,34 +975,8 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!--
-                            <div class="timeline-item">
-                                <div class="timeline-icon">
-                                    <i class="ri-award-line"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <h3 class="timeline-title">1st Place - Digital Poster Competition</h3>
-                                    <span class="timeline-date">Sep 2023</span>
-                                    <p class="timeline-company">MIDFOR FEST 2023 - Universitas Muhammadiyah Pontianak</p>
-                                    <p class="timeline-description">
-                                        Awarded first place for creating an impactful and visually appealing digital poster.
-                                    </p>
-                                    <div class="certificate-preview">
-                                        <img src="images/Sertifikat 1.png" alt="Digital Poster Certificate Preview">
-                                        <div class="preview-details">
-                                            <h4>Piagam Penghargaan - Juara 1</h4>
-                                            <p>MIDFOR FEST 2023</p>
-                                        </div>
-                                        <a href="https://drive.google.com/file/d/11QlFnaMpFE8nxbxLj1SHh5cugnnipKTF/view" target="_blank" class="btn-show-credential">
-                                            Show <i class="ri-external-link-line"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            -->
                             
-                            <div class="timeline-item">
+                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
                                 <div class="timeline-icon">
                                     <i class="ri-award-line"></i>
                                 </div>
@@ -964,7 +997,6 @@
                                             Show <i class="ri-external-link-line"></i>
                                         </a>
                                     </div>
-                                    <!-- Modal -->
                                     <div class="modal fade" id="sertifikat2Modal" tabindex="-1" aria-labelledby="sertifikat2ModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-lg">
                                             <div class="modal-content" style="background:transparent; border:none;">
@@ -982,37 +1014,37 @@
         </section>
         <section id="skills" class="skill-section">
             <div class="container">
-                <h2 class="section-title skill-title">Skills That Make Ideas Happen</h2>
-                <p class="skill-description">
+                <h2 class="section-title skill-title" data-aos="fade-up">Skills That Make Ideas Happen</h2>
+                <p class="skill-description" data-aos="fade-up" data-aos-delay="100">
                     A versatile skill set combining creative design with technical web development. From crafting intuitive UI/UX designs to building responsive websites, I have the expertise to turn concepts into reality.
                 </p>
                 <div class="skill-wrapper">
-                    <div class="skill-item">
+                    <div class="skill-item" data-aos="zoom-in" data-aos-delay="0">
                         <div class="skill-item-icon"><i class="ri-code-s-slash-line"></i></div>
                         <h3 class="skill-item-title">Web Development</h3>
                         <p class="skill-item-dscription">Able to build responsive websites using HTML, CSS, JavaScript, PHP, and frameworks like Bootstrap.</p>
                     </div>
-                    <div class="skill-item">
+                    <div class="skill-item" data-aos="zoom-in" data-aos-delay="100">
                         <div class="skill-item-icon"><i class="ri-database-2-line"></i></div>
                         <h3 class="skill-item-title">Database Management</h3>
                         <p class="skill-item-dscription">Skilled in designing and managing databases using MySQL, including queries, normalization, and data integrity.</p>
                     </div>
-                    <div class="skill-item">
+                    <div class="skill-item" data-aos="zoom-in" data-aos-delay="200">
                         <div class="skill-item-icon"><i class="ri-flow-chart"></i></div>
                         <h3 class="skill-item-title">System Analysis and Design</h3>
                         <p class="skill-item-dscription">Experienced in analyzing system requirements and creating effective system designs using UML.</p>
                     </div>
-                    <div class="skill-item">
+                    <div class="skill-item" data-aos="zoom-in" data-aos-delay="300">
                         <div class="skill-item-icon"><i class="ri-team-line"></i></div>
                         <h3 class="skill-item-title">IT Project Management</h3>
                         <p class="skill-item-dscription">Capable of planning, organizing, and managing technology-based projects using agile tools.</p>
                     </div>
-                    <div class="skill-item">
+                    <div class="skill-item" data-aos="zoom-in" data-aos-delay="400">
                         <div class="skill-item-icon"><i class="ri-brush-line"></i></div>
                         <h3 class="skill-item-title">UI/UX Design</h3>
                         <p class="skill-item-dscription">Designs user-centered interfaces with focus on usability, wireframes, and intuitive navigation flow.</p>
                     </div>
-                    <div class="skill-item">
+                    <div class="skill-item" data-aos="zoom-in" data-aos-delay="500">
                         <div class="skill-item-icon"><i class="ri-lightbulb-flash-line"></i></div>
                         <h3 class="skill-item-title">Problem Solving</h3>
                         <p class="skill-item-dscription">Strong logical thinking skills for solving technical issues, debugging code, and optimizing performance.</p>
@@ -1022,10 +1054,10 @@
         </section>
         <section class="logo-ticker-section">
             <div class="container-fluid">
-                <h2 class="section-title contact-title" style="text-align: center; font-size: 2.4rem;">
+                <h2 class="section-title contact-title" style="text-align: center; font-size: 2.4rem;" data-aos="fade-in">
                     Here are some programming languages and tools </br>that I have mastered.
                 </h2>
-                <div class="logo-ticker-container">
+                <div class="logo-ticker-container" data-aos="fade-up">
                     <div class="logo-ticker-track">
                         <div class="logo-item"><i class="devicon-html5-plain" title="HTML5"></i></div>
                         <div class="logo-item"><i class="devicon-css3-plain" title="CSS3"></i></div>
@@ -1048,12 +1080,12 @@
         <section id="projects" class="project-section">
             <div class="container">
                 <div class="project-wrapper">
-                    <div class="project-left">
+                    <div class="project-left" data-aos="fade-right">
                         <h2 class="section-title project-title">Selected Works & Creative Journeys</h2>
                         <p class="project-description">
                             Explore a selection of my creative projects, including web development, UI/UX design, and information system solutions. Each project highlights my skills in building intuitive, visually appealing, and functional digital experiences.
                         </p>
-                        <a href="project1.html" class="project-image-link" rel="noopener">
+                        <a href="project1.html" class="project-image-link" rel="noopener" data-aos="fade-up" data-aos-delay="100">
                             <div class="project-image-hover">
                                 <img src="images/project-1.png" alt="Image" class="project-image" />
                                 <div class="project-image-overlay">
@@ -1061,7 +1093,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="project2.html" class="project-image-link" rel="noopener">
+                        <a href="project2.html" class="project-image-link" rel="noopener" data-aos="fade-up" data-aos-delay="200">
                             <div class="project-image-hover">
                                 <img src="images/project-2.png" alt="Image" class="project-image" />
                                 <div class="project-image-overlay">
@@ -1070,9 +1102,9 @@
                             </div>
                         </a>
                     </div>
-                    <div class="project-right">
+                    <div class="project-right" data-aos="fade-left">
                         <div class="project-image-wrapper">
-                            <a href="https://www.figma.com/proto/sxiiak8v18Fr4pD22c2DY6/UI-UX-Demensia-Care?page-id=0%3A1&node-id=1-1635&t=tVsOnVbeiyaslXee-1" class="project-image-link" target="_blank" rel="noopener">
+                            <a href="https://www.figma.com/proto/sxiiak8v18Fr4pD22c2DY6/UI-UX-Demensia-Care?page-id=0%3A1&node-id=1-1635&t=tVsOnVbeiyaslXee-1" class="project-image-link" target="_blank" rel="noopener" data-aos="zoom-in" data-aos-delay="100">
                                 <div class="project-image-hover">
                                     <img src="images/project-3.png" alt="Image" class="project-image-item" />
                                     <div class="project-image-overlay">
@@ -1080,7 +1112,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="https://www.figma.com/proto/clTsZjQpbaVJvaZljKmoPu/Foodie--Project-UAS-?page-id=0%3A1&node-id=4-2&p=f&viewport=649%2C132%2C0.07&t=kOcG4DTdQHreDku1-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4%3A2" class="project-image-link" target="_blank" rel="noopener">
+                            <a href="https://www.figma.com/proto/clTsZjQpbaVJvaZljKmoPu/Foodie--Project-UAS-?page-id=0%3A1&node-id=4-2&p=f&viewport=649%2C132%2C0.07&t=kOcG4DTdQHreDku1-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4%3A2" class="project-image-link" target="_blank" rel="noopener" data-aos="zoom-in" data-aos-delay="200">
                                 <div class="project-image-hover">
                                     <img src="images/project-4.png" alt="Image" class="project-image-item" />
                                     <div class="project-image-overlay">
@@ -1088,7 +1120,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="https://www.figma.com/proto/UA4w4THlecjCg620s1oHpZ/EcoTidy?page-id=0%3A1&node-id=50-2&p=f&viewport=339%2C145%2C0.08&t=ENCCUF6mztVZLQoW-1&scaling=scale-down&content-scaling=fixed" class="project-image-link project-image-item-full" target="_blank" rel="noopener">
+                            <a href="https://www.figma.com/proto/UA4w4THlecjCg620s1oHpZ/EcoTidy?page-id=0%3A1&node-id=50-2&p=f&viewport=339%2C145%2C0.08&t=ENCCUF6mztVZLQoW-1&scaling=scale-down&content-scaling=fixed" class="project-image-link project-image-item-full" target="_blank" rel="noopener" data-aos="zoom-in" data-aos-delay="300">
                                 <div class="project-image-hover">
                                     <img src="images/project-5.png" alt="Image" class="project-image-item project-image-item-full" />
                                     <div class="project-image-overlay">
@@ -1096,7 +1128,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="https://your-link-4.com" class="project-image-link project-image-item-full" target="_blank" rel="noopener">
+                            <a href="https://your-link-4.com" class="project-image-link project-image-item-full" target="_blank" rel="noopener" data-aos="zoom-in" data-aos-delay="400">
                                 <div class="project-image-hover">
                                     <img src="images/project-6.png" alt="Image" class="project-image-item project-image-item-full" />
                                     <div class="project-image-overlay">
@@ -1109,67 +1141,10 @@
                 </div>
             </div>
         </section>
-        <style>
-        .project-image-link {
-            display: block;
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            transition: box-shadow 0.3s;
-        }
-        .project-image-hover {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        .project-image-link img,
-        .project-image-hover img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: filter 0.3s;
-        }
-        .project-image-overlay {
-            position: absolute;
-            left: 0; right: 0; bottom: 0; top: 0;
-            background: rgba(23,23,23,0.55);
-            opacity: 0;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            transition: opacity 0.4s;
-            pointer-events: none;
-        }
-        .project-image-text {
-            color: #fff;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 32px;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.4s, transform 0.4s;
-            letter-spacing: 1px;
-            pointer-events: none;
-        }
-        .project-image-link:hover .project-image-overlay,
-        .project-image-hover:hover .project-image-overlay {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .project-image-link:hover img,
-        .project-image-hover:hover img {
-            filter: blur(2px) brightness(0.7);
-        }
-        .project-image-link:hover .project-image-text,
-        .project-image-hover:hover .project-image-text {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        </style>
+        
         <section id="contact" class="contact-section">
             <div class="container">
-                <div class="contact-box">
+                <div class="contact-box" data-aos="zoom-out">
                     <h2 class="section-title contact-title">Got an Idea? I’m All Ears</h2>
                     <a href="mailto:rangga123ptk@gmail.com?subject=Let's%20Collaborate%20on%20a%20Project" class="btn-custom btn-custom-white btn-custom-lg">
                         <span>Contact Me</span>
@@ -1180,7 +1155,7 @@
         </section>
         <footer class="footer-section">
             <div class="container">
-                <div class="row gy-5">
+                <div class="row gy-5" data-aos="fade-up" data-aos-offset="0">
                     <div class="col-lg-4 col-md-12">
                         <a href="#home" class="footer-brand">PORTOFOLIO</a>
                         <p class="footer-tagline">Creating intuitive and beautiful digital experiences from ideas.</p>
@@ -1212,6 +1187,16 @@
             </div>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            // Inisialisasi Animasi AOS
+            AOS.init({
+                once: true, // Animasi hanya terjadi sekali saat scroll ke bawah
+                offset: 100, // Jarak trigger animasi dari bawah layar
+                duration: 800, // Durasi animasi dalam milidetik
+            });
+        </script>
 
         <script type="application/ld+json">
         {
